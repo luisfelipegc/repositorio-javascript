@@ -12,7 +12,7 @@ var NombreVariable = 3;
 ### Definir funciones
 Las funciones las podemos definir de la siguiente manera: 
 function NombreFuncion(){
-    //Todo lo que va acá es la funciónn
+    //Todo lo que va acá es la función
 }
 
 Para invocar la función  sería de la siguiente manera:
@@ -20,3 +20,5 @@ Para invocar la función  sería de la siguiente manera:
 
 ### Nota
 JavaScript es asíncrono. No es multitarea, debe esperarse que las tareas de una funcion terminen para comenzar con otra.
+
+
