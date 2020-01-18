@@ -4,4 +4,10 @@ function imprimir() {
     }
 }
 
+function presionar() {
+    console.log("Click en boton");
+}
+
+var nombre = "Felipe";
+
 imprimir();

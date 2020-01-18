@@ -17,3 +17,6 @@ function NombreFuncion(){
 
 Para invocar la función  sería de la siguiente manera:
 * NombreFuncion();
+
+### Nota
+JavaScript es asíncrono. No es multitarea, debe esperarse que las tareas de una funcion terminen para comenzar con otra.
