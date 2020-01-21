@@ -1,16 +1,13 @@
-function Persona() {
-    this.nombre = "Luis";
-    this.apellido = "Gordillo";
-    this.edad = 21;
-    this.pais = "Colombia";
+function identifica(params) {
+    console.log(params instanceof Persona);
 }
 
-Persona.prototype.imprimirInfo = function() {
-    console.log(this.nombre + " " + this.apellido + " (" + this.edad + ").");
-};
+function Persona() {
+    this.nombre = "Luis";
+    this.edad = 30;
+}
 
-var lf = new Persona();
+var luis = new Persona();
 
-console.log(lf);
-console.log(lf.pais);
-console.log(lf.imprimirInfo());
+identifica(luis);
+// En este caso retornaría true.

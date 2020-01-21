@@ -121,7 +121,7 @@ var nuevaFuncion = crearFuncion();
 nuevaFuncion(persona.nombre);
 
 ### Métodos y objeto THIS
-Los métodos son funciones que se encuentran dentro de los objetos.
+* Los métodos son funciones que se encuentran dentro de los objetos.
 Podemos usar this para referirnos a los atributos dentro del objeto y que no mire en el objeto global:
 
 var persona = {
@@ -134,7 +134,7 @@ var persona = {
 persona.imprimirNombre();
 
 ### Palabra reservada NEW
-Básicamente el uso de la palabra new es el mismo uso que se le da en Java(Hacer referencia a una clase pero aca es una funcion). Por ejemplo:
+* Básicamente el uso de la palabra new es el mismo uso que se le da en Java(Hacer referencia a una clase pero aca es una funcion). Por ejemplo:
 function Persona(nombre, apellido) {
     this.nombre = nombre;
     this.apellido = apellido;
@@ -152,7 +152,7 @@ console.log(luis.edad);
 console.log(luis.nombreCompleto());
 
 ## Prototipos: Prototype
-Para agregar atributos o métodos a una funcion(objeto) por fuera de ella. Por ejemplo:
+* Para agregar atributos o métodos a una funcion(objeto) por fuera de ella. Por ejemplo:
 function Persona() {
     this.nombre = "Luis";
     this.apellido = "Gordillo";
@@ -170,6 +170,59 @@ console.log(lf);
 console.log(lf.pais);
 console.log(lf.imprimirInfo());
 
+### Funciones anonimas
+* Las funciones anonimas nos permiten un mejor encapsulamiento de los datos para no ser modificados con facilidad. Se usa así:
+(function() {
+    var a = 10;
+    console.log(a);
+    function cambiarA() {
+        a = 20;
+    }
+    cambiarA();
+    console.log(a);
+})();
+
+* De igual forma este ejemplo aplica para funciones anonimas:
+function ejecutarFuncion(fn) {
+    if (fn() == 1) {
+        return true;
+    } else {
+        return false;
+    }
+}
+console.log(
+    ejecutarFuncion(function() {
+        console.log("funcion anonima ejecutada!");
+        return 0;
+    })
+);
+
+## Typeof y Instanceof
+* Para verificar el tipo de datos que se está recibiendo utilizamos el typeof:
+function identifica(params) {
+    console.log(typeof params);
+}
+function Persona() {}
+
+var juan = new Persona();
+
+identifica(juan);
+// En este caso retornaría que la variable juan es un objeto de tipo Persona
+
+* Si yo quiero saber si una variable es un objeto en especifico uso el instanceof:
+function identifica(params) {
+    console.log(params instanceof Persona);
+}
+
+function Persona() {
+    this.nombre = "Luis";
+    this.edad = 30;
+}
+
+var luis = new Persona();
+
+identifica(luis);
+// En este caso retornaría true.
 
 
 
