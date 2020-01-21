@@ -67,11 +67,13 @@ function imprimir(persona) {
     console.log(persona.nombre + " " + persona.Apellido);
 }
 imprimir({
-    nombre: "Juan",
+    nombre: "Luis",
     Apellido: "Gordillo"
 });
 
 * Funciones
+### Nota: 
+LAS FUNCIONES SON OBJETOS!!!
 function imprimir(fn) {
     fn();
 }
@@ -79,3 +81,96 @@ function imprimir(fn) {
 imprimir( function(){
     console.log("Funcion anónina");
 });
+
+### Retorno de las funciones
+Una funcion puede regresar primitivos, objetos, funciones, null, undefined.
+Usamos el return de la siguiente manera:
+function obtenerAleatorio() {
+    return Math.random();
+}
+console.log(obtenerAleatorio() + 10);
+
+* De igual forma, las funciones se pueden asignar a variables y despues llamarlas:
+function obtenerNombre() {
+    return "Juan";
+}
+var nombre = obtenerNombre();
+console.log(nombre + " Padilla");
+
+* Funciones que devuelven objetos tipo así:
+
+function crearPersona(nombre, apellido) {
+
+    return {
+        nombre: nombre,
+        apellido: apellido
+    };
+}
+var persona = crearPersona("Maria", "Perez");
+console.log(persona);
+
+* Funciones que devuelven funciones tipo así: 
+
+function crearFuncion() {
+    return function(nombre) {
+        console.log("Me crearon " + nombre + "!!");
+    };
+}
+
+var nuevaFuncion = crearFuncion();
+nuevaFuncion(persona.nombre);
+
+### Métodos y objeto THIS
+Los métodos son funciones que se encuentran dentro de los objetos.
+Podemos usar this para referirnos a los atributos dentro del objeto y que no mire en el objeto global:
+
+var persona = {
+    nombre: "Maria",
+    apellido: "Dubon",
+    imprimirNombre: function() {
+        console.log("Nombre completo: " + this.nombre + " " + this.apellido);
+    }
+};
+persona.imprimirNombre();
+
+### Palabra reservada NEW
+Básicamente el uso de la palabra new es el mismo uso que se le da en Java(Hacer referencia a una clase pero aca es una funcion). Por ejemplo:
+function Persona(nombre, apellido) {
+    this.nombre = nombre;
+    this.apellido = apellido;
+    this.edad = 30;
+    this.nombreCompleto = function() {
+        return this.nombre + " " + this.apellido + ".";
+    };
+}
+
+var luis = new Persona("Sandra", "Zarate");
+
+console.log(luis.nombre);
+console.log(luis.apellido);
+console.log(luis.edad);
+console.log(luis.nombreCompleto());
+
+## Prototipos: Prototype
+Para agregar atributos o métodos a una funcion(objeto) por fuera de ella. Por ejemplo:
+function Persona() {
+    this.nombre = "Luis";
+    this.apellido = "Gordillo";
+    this.edad = 21;
+    this.pais = "Colombia";
+}
+
+Persona.prototype.imprimirInfo = function() {
+    console.log(this.nombre + " " + this.apellido + " (" + this.edad + ").");
+};
+
+var lf = new Persona();
+
+console.log(lf);
+console.log(lf.pais);
+console.log(lf.imprimirInfo());
+
+
+
+
+
